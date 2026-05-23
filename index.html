@@ -88,16 +88,13 @@
       text-align: center;
     }
 
-    .cat-ascii {
-      font-family: monospace;
-      font-size: 1rem;
-      line-height: 1.4;
-      background: #fff3e6;
-      border: 2px solid #d4a47a;
-      border-radius: 12px;
-      padding: 20px 30px;
-      display: inline-block;
-      color: #5c3d2e;
+    .cat-photo {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 4px solid #d4a47a;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     }
 
     section {
@@ -271,15 +268,7 @@
       </p>
     </div>
     <div class="hero-img">
-      <div class="cat-ascii">
-        <pre>
-  /\_____/\
- (  o   o  )
-  =( Y )=
-   )   (
-  (_)-(_)
-        </pre>
-      </div>
+      <img class="cat-photo" src="https://placekitten.com/280/280" alt="A cute cat">
     </div>
   </div>
 
