@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The World of Cats</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fdf6ee;
+      color: #3d2b1f;
+    }
+
+    header {
+      background: linear-gradient(135deg, #5c3d2e, #9e6b4a);
+      color: #fff8f0;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.85;
+      font-style: italic;
+    }
+
+    nav {
+      background-color: #3d2b1f;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 14px;
+    }
+
+    nav a {
+      color: #f5dfc5;
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #ffb87a;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 40px;
+      gap: 50px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-text h2 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      color: #5c3d2e;
+    }
+
+    .hero-text p {
+      line-height: 1.8;
+      font-size: 1.05rem;
+      color: #5a4030;
+    }
+
+    .hero-img {
+      flex: 0 0 280px;
+      text-align: center;
+    }
+
+    .cat-ascii {
+      font-family: monospace;
+      font-size: 1rem;
+      line-height: 1.4;
+      background: #fff3e6;
+      border: 2px solid #d4a47a;
+      border-radius: 12px;
+      padding: 20px 30px;
+      display: inline-block;
+      color: #5c3d2e;
+    }
+
+    section {
+      padding: 50px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #5c3d2e;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #d4a47a;
+      padding-bottom: 8px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #fff8f0;
+      border: 1px solid #e0c4a8;
+      border-radius: 12px;
+      padding: 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      color: #5c3d2e;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #6b4f3a;
+    }
+
+    .facts-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .facts-list li {
+      background: #fff3e6;
+      border-left: 4px solid #9e6b4a;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.97rem;
+      line-height: 1.6;
+      color: #5a4030;
+    }
+
+    .facts-list li strong {
+      color: #5c3d2e;
+    }
+
+    .breeds-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .breed-card {
+      text-align: center;
+      background: #fff8f0;
+      border-radius: 12px;
+      padding: 24px 16px;
+      border: 1px solid #e0c4a8;
+    }
+
+    .breed-card .breed-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    .breed-card h3 {
+      font-size: 1.1rem;
+      color: #5c3d2e;
+      margin-bottom: 6px;
+    }
+
+    .breed-card p {
+      font-size: 0.88rem;
+      color: #7a5c48;
+      line-height: 1.6;
+    }
+
+    .quote-block {
+      background: linear-gradient(135deg, #f5dfc5, #ffe8cc);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .quote-block blockquote {
+      font-size: 1.4rem;
+      font-style: italic;
+      color: #5c3d2e;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .quote-block cite {
+      color: #9e6b4a;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background-color: #3d2b1f;
+      color: #c8a882;
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+    footer span {
+      color: #ffb87a;
+    }
+
+    @media (max-width: 700px) {
+      header h1 { font-size: 2.2rem; }
+      .hero { flex-direction: column; padding: 30px 20px; }
+      .hero-img { flex: none; }
+      section { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>The World of Cats</h1>
+    <p>Mysterious, graceful, and endlessly fascinating companions</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#breeds">Breeds</a>
+    <a href="#facts">Facts</a>
+    <a href="#behavior">Behavior</a>
+    <a href="#quote">Quotes</a>
+  </nav>
+
+  <div class="hero" id="about">
+    <div class="hero-text">
+      <h2>Our Feline Friends</h2>
+      <p>
+        Cats have shared their lives with humans for over 10,000 years, first drawn to human settlements by the abundance of rodents. Today, they are one of the most popular pets in the world — with over 600 million domestic cats living across the globe.
+      </p>
+      <br>
+      <p>
+        From the sleek Siamese to the fluffy Maine Coon, cats come in hundreds of breeds, each with its own personality and charm. Whether they're curled up in a sunbeam or leaping after a toy, cats bring joy, comfort, and a touch of wild nature into our homes.
+      </p>
+    </div>
+    <div class="hero-img">
+      <div class="cat-ascii">
+        <pre>
+  /\_____/\
+ (  o   o  )
+  =( Y )=
+   )   (
+  (_)-(_)
+        </pre>
+      </div>
+    </div>
+  </div>
+
+  <section id="breeds">
+    <h2>Popular Breeds</h2>
+    <div class="breeds-grid">
+      <div class="breed-card">
+        <div class="breed-icon">🐱</div>
+        <h3>Persian</h3>
+        <p>Calm and gentle with a luxurious long coat. Loves quiet indoor life and lots of grooming.</p>
+      </div>
+      <div class="breed-card">
+        <div class="breed-icon">🐈</div>
+        <h3>Siamese</h3>
+        <p>Vocal, social, and intelligent. Known for striking blue eyes and pointed coloring.</p>
+      </div>
+      <div class="breed-card">
+        <div class="breed-icon">🐈‍⬛</div>
+        <h3>Maine Coon</h3>
+        <p>One of the largest domestic breeds. Friendly, playful, and surprisingly dog-like in temperament.</p>
+      </div>
+      <div class="breed-card">
+        <div class="breed-icon">🐱</div>
+        <h3>Bengal</h3>
+        <p>Athletic and energetic with a wild, leopard-like coat. Loves to play and explore.</p>
+      </div>
+      <div class="breed-card">
+        <div class="breed-icon">🐈</div>
+        <h3>Ragdoll</h3>
+        <p>Exceptionally relaxed and affectionate. Goes limp when held — hence the name.</p>
+      </div>
+      <div class="breed-card">
+        <div class="breed-icon">🐈‍⬛</div>
+        <h3>Scottish Fold</h3>
+        <p>Famous for folded ears and round face. Sweet-natured and adaptable to any home.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="facts">
+    <h2>Fascinating Facts</h2>
+    <ul class="facts-list">
+      <li><strong>Night vision:</strong> Cats can see in light levels 6 times lower than humans, thanks to a reflective layer behind their retinas.</li>
+      <li><strong>Purring heals:</strong> A cat's purr vibrates at 25–150 Hz — frequencies known to promote bone density and tissue healing.</li>
+      <li><strong>Whisker radar:</strong> Whiskers are roughly as wide as a cat's body, helping them judge whether they can fit through a space.</li>
+      <li><strong>Unique nose print:</strong> Every cat's nose has a unique pattern of ridges and bumps, like a human fingerprint.</li>
+      <li><strong>Righting reflex:</strong> Cats almost always land on their feet thanks to a flexible spine and an instinctive mid-air rotation.</li>
+      <li><strong>Speed:</strong> Domestic cats can sprint up to 48 km/h (30 mph) in short bursts.</li>
+      <li><strong>Sleep champions:</strong> Cats sleep 12–16 hours a day, conserving energy for bursts of hunting activity.</li>
+      <li><strong>Ancient bond:</strong> The oldest known evidence of cat domestication dates to around 7500 BC in Cyprus.</li>
+    </ul>
+  </section>
+
+  <section id="behavior">
+    <h2>Understanding Cat Behavior</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">😽</div>
+        <h3>Slow Blinking</h3>
+        <p>When a cat slowly closes and opens its eyes at you, it's a sign of trust and affection — often called a "cat kiss." Try returning the gesture!</p>
+      </div>
+      <div class="card">
+        <div class="icon">🐾</div>
+        <h3>Kneading</h3>
+        <p>The rhythmic pushing motion cats make with their paws (also called "making biscuits") is a comforting behavior rooted in kittenhood nursing.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎁</div>
+        <h3>Bringing Gifts</h3>
+        <p>When your cat brings you a "present" (toy or prey), they're treating you as part of their family and sharing their hunting success with you.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📦</div>
+        <h3>Box Obsession</h3>
+        <p>Cats are drawn to enclosed spaces because they feel safe and secure. Boxes reduce stress and give cats a vantage point to observe their territory.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🌙</div>
+        <h3>Night Activity</h3>
+        <p>Cats are crepuscular — most active at dawn and dusk. Their midnight bursts of energy are called "zoomies" and are completely normal.</p>
+      </div>
+      <div class="card">
+        <div class="icon">💬</div>
+        <h3>Meowing</h3>
+        <p>Interestingly, adult cats primarily meow to communicate with humans — they rarely meow at each other. Each cat develops its own "vocabulary."</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="quote">
+    <div class="quote-block">
+      <blockquote>"Time spent with cats is never wasted."</blockquote>
+      <cite>— Sigmund Freud</cite>
+    </div>
+    <br>
+    <div class="quote-block">
+      <blockquote>"In ancient times cats were worshipped as gods; they have not forgotten this."</blockquote>
+      <cite>— Terry Pratchett</cite>
+    </div>
+  </section>
+
+  <footer>
+    <p>Made with <span>love</span> for cat lovers everywhere &nbsp;|&nbsp; The World of Cats &copy; 2026</p>
+  </footer>
+
+</body>
+</html>
